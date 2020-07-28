@@ -2,11 +2,11 @@
 var logo = document.querySelector('.logo');
 var logoWidth = logo.getAttribute('width');
 var logoheight = logo.getAttribute('height');
-var smallWH = [165,64];
-var smallMobileWH = [125,48];
+var smallWH = [165,'auto'];
+var smallMobileWH = [125,'auto'];
 var scrollImageMax = 160;
-var bigWH = [496,192]
-var bigMobileWH = [248,96];
+var bigWH = ['30%','auto']
+var bigMobileWH = [248,'auto'];
 var hamburger = document.querySelector('.hamburger-menu');
 
 var diff = logoWidth - smallWH[0];
@@ -149,7 +149,7 @@ window.addEventListener('scroll', function() {
 
 
 function Loc(){
-    document.querySelector('.right-container').scrollIntoView(false);
+    document.querySelector('.right-container').scrollIntoView();
     // window.scrollTo(0,868);
     var menu = document.querySelectorAll('.nav-item');
     menu.forEach(menuitem => {
@@ -186,7 +186,7 @@ function Home(){
 }
 
 function Threats(){
-    document.querySelector('.left-container-2').scrollIntoView(false);
+    document.querySelector('.left-container-2').scrollIntoView();
     // window.scrollTo(0,1936);
     var menu = document.querySelectorAll('.nav-item');
     menu.forEach(menuitem => {
