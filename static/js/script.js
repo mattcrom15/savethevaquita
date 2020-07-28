@@ -100,66 +100,68 @@ var BoatMaterial = new THREE.MeshToonMaterial({
 
 
 //load boatmesh
-var boatLoader = new THREE.GLTFLoader();
 
-var boat = boatLoader.load('meshes/boat/fishing_boat.glb',
-function ( gltf ) {
-    boat_mesh = gltf.scene
+//disable boat mesh
+// var boatLoader = new THREE.GLTFLoader();
 
-    if (ScreenWidth[0]<=700){
-        var b_psr = {
-            'Rx': 0.3,
-            'Ry': -2.5,
-            'Rz': 0,
-            'x': 0,
-            'y':-17.47,
-            'z':3,
-            'Sx':0.5,
-            'Sy':0.5,
-            'Sz':0.5,
+// var boat = boatLoader.load('meshes/boat/fishing_boat.glb',
+// function ( gltf ) {
+//     boat_mesh = gltf.scene
+
+//     if (ScreenWidth[0]<=700){
+//         var b_psr = {
+//             'Rx': 0.3,
+//             'Ry': -2.5,
+//             'Rz': 0,
+//             'x': 0,
+//             'y':-17.47,
+//             'z':3,
+//             'Sx':0.5,
+//             'Sy':0.5,
+//             'Sz':0.5,
     
-        }
-    }else{
-        var b_psr = {
-            'Rx': 0.3,
-            'Ry': -2.5,
-            'Rz': 0,
-            'x': 5,
-            'y':-19.67,
-            'z':0,
-            'Sx':1,
-            'Sy':1,
-            'Sz':1,
+//         }
+//     }else{
+//         var b_psr = {
+//             'Rx': 0.3,
+//             'Ry': -2.5,
+//             'Rz': 0,
+//             'x': 5,
+//             'y':-19.67,
+//             'z':0,
+//             'Sx':1,
+//             'Sy':1,
+//             'Sz':1,
 
-        }
-    }
+//         }
+//     }
 
-    boat_mesh.position.set(b_psr['x'],b_psr['y'],b_psr['z']);
-    boat_mesh.rotation.set(b_psr['Rx'],b_psr['Ry'],b_psr['Rz']);
-    boat_mesh.scale.set(b_psr['Sx'],b_psr['Sy'],b_psr['Sz']);
-    boat_mesh.castShadow = true;
-    boat_mesh.receiveShadow = true;
-    scene.add( boat_mesh );
+//     boat_mesh.position.set(b_psr['x'],b_psr['y'],b_psr['z']);
+//     boat_mesh.rotation.set(b_psr['Rx'],b_psr['Ry'],b_psr['Rz']);
+//     boat_mesh.scale.set(b_psr['Sx'],b_psr['Sy'],b_psr['Sz']);
+//     boat_mesh.castShadow = true;
+//     boat_mesh.receiveShadow = true;
+//     scene.add( boat_mesh );
 
-    //assign boat material
-    boat_mesh.traverse((mesh)=>{
-        if (mesh.isMesh) mesh.material = BoatMaterial;
-    });
+//     //assign boat material
+//     boat_mesh.traverse((mesh)=>{
+//         if (mesh.isMesh) mesh.material = BoatMaterial;
+//     });
 
-},
-// called while loading is progressing
-function ( xhr ) {
+// },
+// // called while loading is progressing
+// function ( xhr ) {
 
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-},
-// called when loading has errors
-function ( error ) {
+// },
+// // called when loading has errors
+// function ( error ) {
 
-    console.log( 'An error happened' );
+//     console.log( 'An error happened' );
 
-}
-);
+// }
+// );
 
 
 
@@ -281,78 +283,79 @@ var pinMaterial = new THREE.MeshToonMaterial({
 
 })
 
+//disable earth
 // load earth
-var EarthLoader = new THREE.GLTFLoader();
+// var EarthLoader = new THREE.GLTFLoader();
 
-var Earth = EarthLoader.load('meshes/earth/earth.glb',
-function ( gltf ) {
-    if (ScreenWidth[0]<=700){
-        var e_psr = {
-            'Rx': 0,
-            'Ry': 0,
-            'Rz': 0,
-            'x': 0,
-            'y':-9.2,
-            'z':5.6
+// var Earth = EarthLoader.load('meshes/earth/earth.glb',
+// function ( gltf ) {
+//     if (ScreenWidth[0]<=700){
+//         var e_psr = {
+//             'Rx': 0,
+//             'Ry': 0,
+//             'Rz': 0,
+//             'x': 0,
+//             'y':-9.2,
+//             'z':5.6
     
-        }
+//         }
 
-    }else{
-        var e_psr = {
-            'Rx': 0,
-            'Ry': 0,
-            'Rz': 0,
-            'x': -1.3,
-            'y':-7,
-            'z':7.6
+//     }else{
+//         var e_psr = {
+//             'Rx': 0,
+//             'Ry': 0,
+//             'Rz': 0,
+//             'x': -1.3,
+//             'y':-7,
+//             'z':7.6
     
-        }
-    }
+//         }
+//     }
 
-    // e_mesh = gltf.scene
-    earthMesh = gltf.scene;
-    pin = earthMesh.children[0].children[0];
-    pintop = earthMesh.children[0].children[1];
-    earthMesh.position.set(e_psr['x'],e_psr['y'],e_psr['z']);
-    earthMesh.rotation.set(e_psr['Rx'],e_psr['Ry'],e_psr['Rz']);
-    earthMesh.castShadow = true;
-    earthMesh.receiveShadow = true;
-    scene.add(earthMesh);
+//     // e_mesh = gltf.scene
+//     earthMesh = gltf.scene;
+//     pin = earthMesh.children[0].children[0];
+//     pintop = earthMesh.children[0].children[1];
+//     earthMesh.position.set(e_psr['x'],e_psr['y'],e_psr['z']);
+//     earthMesh.rotation.set(e_psr['Rx'],e_psr['Ry'],e_psr['Rz']);
+//     earthMesh.castShadow = true;
+//     earthMesh.receiveShadow = true;
+//     scene.add(earthMesh);
 
-    //assign earth material
+//     //assign earth material
 
-    earthMesh.traverse((mesh)=>{
-        if (mesh.isMesh) mesh.material = EarthMaterial;
-    });
+//     earthMesh.traverse((mesh)=>{
+//         if (mesh.isMesh) mesh.material = EarthMaterial;
+//     });
 
-    //assign pnitop material
-    pintop.traverse((mesh)=>{
-        if (mesh.isMesh) mesh.material = pinTopMaterial;
-    });
+//     //assign pnitop material
+//     pintop.traverse((mesh)=>{
+//         if (mesh.isMesh) mesh.material = pinTopMaterial;
+//     });
 
-    //assign pin material
-    pin.traverse((mesh)=>{
-        if (mesh.isMesh) mesh.material = pinMaterial;
-    });
-
-
+//     //assign pin material
+//     pin.traverse((mesh)=>{
+//         if (mesh.isMesh) mesh.material = pinMaterial;
+//     });
 
 
 
-},
-// called while loading is progressing
-function ( xhr ) {
 
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-},
-// called when loading has errors
-function ( error ) {
+// },
+// // called while loading is progressing
+// function ( xhr ) {
 
-    console.log( 'An error happened' );
+//     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-}
-);
+// },
+// // called when loading has errors
+// function ( error ) {
+
+//     console.log( 'An error happened' );
+
+// }
+// );
 
 
 // document.addEventListener('mousedown',function(){
@@ -416,14 +419,14 @@ function animate() {
     }
 
 
-    if (earthMesh){
-        earthMesh.rotation.y += 0.002;
+    // if (earthMesh){
+    //     earthMesh.rotation.y += 0.002;
 
-    }
-    if (boat_mesh){
-        boat_mesh.rotation.y += 0.005;
+    // }
+    // if (boat_mesh){
+    //     boat_mesh.rotation.y += 0.005;
 
-    }
+    // }
     
 
 
